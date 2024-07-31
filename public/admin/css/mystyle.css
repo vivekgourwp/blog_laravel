@@ -31,3 +31,10 @@
 .action_btn span:hover {
     color: #000;
 }
+
+/* New Register user */
+
+.registerUser .form-control {
+    border: 1px solid #bbbbbb;
+    padding: 10px;
+}

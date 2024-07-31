@@ -1,4 +1,6 @@
-@include('admin.layouts.header')
+@extends('admin.layouts.app')
+
+@section('content')
 
     <!-- End Navbar -->
     <div class="container-fluid py-4">
@@ -69,4 +71,4 @@
       </div>
     </div>
 
-@include('admin.layouts.footer')
+@endsection
