@@ -8,7 +8,7 @@
   
   <meta name="author" content="themefisher.com">
 
-  <title>Megakit| Html5 Agency template</title>
+  <title>Wordpress| Html5 Agency template</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}">
@@ -19,7 +19,6 @@
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="{{ asset('plugins/slick-carousel/slick/slick.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/slick-carousel/slick/slick-theme.css') }}">
-  
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -53,7 +52,7 @@
 	<nav class="navbar navbar-expand-lg  py-4" id="navbar">
 		<div class="container">
 		  <a class="navbar-brand" href="index.html">
-		  	Mega<span>kit.</span>
+		  	 Wordpress <!--<span>kit.</span> -->
 		  </a>
 
 		  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
