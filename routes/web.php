@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 Route::get('/aa', function () {
     return view('home');
 });
@@ -11,7 +12,7 @@ Route::get('/aa', function () {
 // });
 
 // routes/web.php
-Route::get('/a', function () {
+Route::get('/admin-deshbord', function () {
     return view('admin.index');
 });
 
@@ -23,3 +24,8 @@ Route::get('/a', function () {
 
 Route::resource('users', UserController::class);
 
+Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+
+Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
+
+Route::get('posts/', [PostController::class, 'index'])->name('posts');

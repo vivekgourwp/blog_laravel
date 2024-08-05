@@ -34,7 +34,32 @@
 
 /* New Register user */
 
-.registerUser .form-control {
-    border: 1px solid #bbbbbb;
+ .form-control {
+    border: 1px solid #bbbbbb!important;
     padding: 10px;
+}
+
+.post_content{
+    max-width: 300px;
+    overflow: auto;
+}
+
+.table thead th {
+    padding: 0.75rem 0.5rem;
+}
+.pgtitle{
+    display: flex;
+}
+
+.addnp_btn{
+    border: 1px solid grey !important;
+    margin: 0px 20px;
+    padding: 10px;
+    line-height: 20px;
+    border-radius: 5px;
+}
+
+.pgtitle {
+    display: flex;
+    align-items: flex-start;
 }
