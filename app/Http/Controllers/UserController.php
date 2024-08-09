@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +63,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for  editing the specified resource.
      */
     public function edit(User $user)
     {
@@ -88,6 +90,8 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
+    
+
     /**
      * Remove the specified resource from storage.
      */
@@ -96,4 +100,7 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
+
+
+
 }
