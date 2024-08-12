@@ -53,6 +53,29 @@
     padding-right: 15px;
     font-weight: 500;
 }
+.a_edit_btn a:hover span{
+    color: #fb8c00;
+}
+
+.a_delete_btn{
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    color: rgb(105, 0, 0);
+    background-color: transparent;
+}
+.a_thumb_img img {
+    width: 100px;
+    height: 60px;
+    object-fit: contain;
+    box-shadow: 1px 1px 3px 0px #80808075;
+    border-radius: 5px;
+    background: #e8eef1;
+}
+
+.a_delete_btn:hover{
+    color: rgb(250, 4, 4);
+}
 
 .action_btn span:hover {
     color: #000;

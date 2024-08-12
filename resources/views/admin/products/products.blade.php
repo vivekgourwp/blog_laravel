@@ -8,21 +8,14 @@
       <a href="{{ route('products.create') }}" class="addnp_btn">Add new product</a>
   </div>
 
-  <!-- Filter and Add New Product Button -->
-  <div class="d-flex justify-content-between mb-3">
-    <div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
+
 
   <!-- Products Table -->
   <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">ID</th>
+        <th scope="col">Image</th>
         <th scope="col">Product Name</th>
         <th scope="col">Price</th>
         <th scope="col">Stock</th>
@@ -34,16 +27,19 @@
         <!-- Product Row 1 -->
         <tr>
           <th scope="row">{{$item->id}}</th>
+          <th class="a_thumb_img" scope="row">            
+            <img src="{{ $item->thumbnail_image ? asset('storage/' . $item->thumbnail_image) : asset('images/default-thumb-product.png') }}" alt="Product Image">
+          </th>
           <td>
             {{$item->name}}
             <div class="action_btn">
-              <div class="edit"><a href="{{ route('products.edit', $item->id) }}"><span>Edit</span></a></div>
+              <div class="a_edit_btn"><a href="{{ route('products.edit', $item->id) }}"><span>Edit</span></a></div>
               <div class="view"><a href="{{ route('products.show', $item->id) }}"><span>View</span></a></div>
               <div class="delete">                
                   <form action="{{ route('products.destroy', $item->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <span type="submit" class="" onclick="return confirm('Are you sure you want to delete this product?');">Delete</span>
+                    <button type="submit" class="a_delete_btn" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
                   </form>
               </div>
             </div>
