@@ -5,11 +5,14 @@
 <div class="container mt-5">
     <div class="row">
         <!-- Product Details Area -->
-        <div class="col-md-12">
+        <div class="cpl-md-12">
             <div class="pgtitle">
                 <h3 class="mb-4">Product details</h3> 
                 <a href="{{ route('products.create') }}" class="addnp_btn">Add new User</a>
             </div>
+        </div>
+        <div class="col-md-6">
+
             <div class="card">
                 <div class="card-header">
                     {{ $product->name }}
@@ -27,6 +30,13 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6 show_img">
+            <div class="card">
+                <img src="{{ $product->thumbnail_image ? asset('storage/' . $product->thumbnail_image) : asset('images/default-thumb-product.png') }}" alt="Product Image">
+
+            </div>
+        </div>
+
     </div>
 </div>
 

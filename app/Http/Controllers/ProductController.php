@@ -66,20 +66,36 @@ class ProductController extends Controller
     }
 
 
-    // Update the specified product in storage
     public function update(Request $request, Product $product)
     {
+        // Validate request
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'regular_price' => 'required|numeric|min:0',
-            'sale_price' => 'nullable|numeric|min:0',
-            'stock_quantity' => 'required|integer|min:0',
-            'sku' => 'nullable|string|max:255',
+            'name'              => 'required|string|max:255',
+            'description'       => 'nullable|string',
+            'regular_price'     => 'required|numeric|min:0',
+            'sale_price'        => 'nullable|numeric|min:0',
+            'stock_quantity'    => 'required|integer|min:0',
+            'sku'               => 'nullable|string|max:255',
+            'thumbnail_image'   => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        $product->update($request->all());
-
+    
+        // Prepare data for update
+        $data = $request->except('thumbnail_image'); // Exclude the image from the data to handle separately
+    
+        // Handle the new image upload if provided
+        if ($request->hasFile('thumbnail_image')) {
+            // Delete the old image if it exists
+            if ($product->thumbnail_image) {
+                \Storage::disk('public')->delete($product->thumbnail_image);
+            }
+    
+            // Store the new image and update the path
+            $data['thumbnail_image'] = $request->file('thumbnail_image')->store('products', 'public');
+        }
+    
+        // Update the product with the provided data
+        $product->update($data);
+    
         return redirect()->route('products')->with('success', 'Product updated successfully');
     }
 

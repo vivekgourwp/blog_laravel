@@ -1,16 +1,27 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
+<form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
 <div class="container mt-5">
     <div class="row">
         <!-- Main Form Area -->
         <div class="col-md-9">
             <h4>Edit Product</h4>
-            <form method="POST" action="{{ route('products.update', $product->id) }}">
+            
                 @csrf
                 @method('PUT')
-                
+            
+                    <!-- Display Validation Errors -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                 <div class="mb-3">
                     <label for="productName" class="form-label">Product Name</label>
                     <input type="text" class="form-control" id="productName" name="name" value="{{ old('name', $product->name) }}" placeholder="Enter product name">
@@ -42,14 +53,19 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Product</button>
-            </form>
+
         </div>
 
         <!-- Sidebar Area (if needed) -->
         <div class="col-md-3">
             <!-- You can include additional fields or information here if needed -->
+
+            <div class="mb-3">
+                <label for="thumbnail_image" class="form-label">Thumbnail</label>
+                <input class="form-control" type="file" id="thumbnail_image" name="thumbnail_image" value="{{ old('thumbnail_image') }}">
+              </div>
         </div>
     </div>
 </div>
-
+</form>
 @endsection
